@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagp-order
+  labels:
+    app: nagp-order
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagp-order
+  template:
+    metadata:
+      labels:
+        app: nagp-order
+    spec:
+      containers:
+      - name: nagp-order
+        image: 3147181/order:v1
+        ports:
+        - containerPort: 8080 #port container exposed
