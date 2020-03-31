@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nagp-aggregator
+  labels:
+    app: nagp-aggregator
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nagp-aggregator
+  template:
+    metadata:
+      labels:
+        app: nagp-aggregator
+    spec:
+      containers:
+      - name: nagp-aggregator
+        image: 3147181/aggregator:v2
+        ports:
+        - containerPort: 8080 #port container exposed
+        env:
+        - name: order_url
+          valueFrom:
+            configMapKeyRef:
+              name: aggregator-config
+              key: ORDER_URL
+        - name: user_url
+          valueFrom:
+            configMapKeyRef:
+              name: aggregator-config
+              key: USER_URL
+        
