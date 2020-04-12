@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: nagp-order
-        image: 3147181/order:v1
+        image: 3147181/order:assignment-2
         ports:
         - containerPort: 8080 #port container exposed
+        env:
+        - name: JAEGER_HOST_URL
+          valueFrom:
+            configMapKeyRef:
+              name: order-config-map
+              key: JAEGER_HOST_URL

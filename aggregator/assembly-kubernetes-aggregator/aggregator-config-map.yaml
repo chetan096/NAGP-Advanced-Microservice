@@ -1,8 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: aggregator-config
+  name: aggregator-config-map
   namespace: default
 data:
   ORDER_URL: http://nagp-order-service
   USER_URL: http://nagp-user-service
+  JAEGER_HOST_URL: jaeger-agent

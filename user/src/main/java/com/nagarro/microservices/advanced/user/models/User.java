@@ -1,9 +1,25 @@
-package com.nagarro.microservices.advanced.user.dtos;
+package com.nagarro.microservices.advanced.user.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USER")
 public class User {
 
+	@Id
+	@Column(name = "ID")
+	private Long id;
+
+	@Column(name = "NAME")
 	private String name;
+
+	@Column(name = "AGE")
 	private int age;
+
+	@Column(name = "EMAIL")
 	private String email;
 
 	public User() {

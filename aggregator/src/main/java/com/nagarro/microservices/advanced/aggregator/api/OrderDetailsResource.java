@@ -20,10 +20,10 @@ public class OrderDetailsResource {
 	@Autowired
 	private RestTemplate restTemplate;
 
-	@Value("${user.url:http://localhost:8081}")
+	@Value("${USER_URL:http://localhost:8081}")
 	private String userUrl;
 
-	@Value("${order.url:http://localhost:8080}")
+	@Value("${ORDER_URL:http://localhost:8080}")
 	private String orderUrl;
 
 	@GetMapping("orderdetails/1")
